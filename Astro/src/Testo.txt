@@ -1,0 +1,30 @@
+---Esercizio filtro---
+Scrivere una classe (concreta) Punto con i campi interi x, y, z.
+Scrivere i metodi somma e sottrai che, dato un altro punto, eseguono la corrispondente operazione coordinata per coordinata restituendo un nuovo punto.
+Scrivere inoltre il metodo norma che calcola la somma dei valori assoluti delle coordinate del punto, restituendola come intero.
+La classe deve infine sovrascrivere toString in modo che, dato un punto con coordinate x, y, z, restituisca una stringa nel formato (x, y, z).
+
+
+Un corpo celeste è descritto dal suo nome e dalla sua posizione, intesa come punto tridimensionale; ciascun corpo celeste ha un'energia pari al prodotto di quella cinetica e potenziale, esprimibile come long. Due tipologie di corpi celesti sono pianeti e stelle fisse.
+La posizione delle stelle fisse non cambia mai; quella dei pianeti cambia in funzione della loro velocità, anch'essa modellabile come punto tridimensionale. L'energia cinetica di un pianeta è data dalla norma della sua posizione, mentre quella potenziale dalla norma della sua velocità; viceversa, quella delle stelle fisse è sempre nulla.
+Un pianeta può interagire con altri corpi celesti, come nel seguente esempio.
+
+Giove ha posizione = (3, 0, 0); Marte ha posizione = (5, 0, 0). Le velocità di entrambi i pianeti sono inizialmente nulle.
+Per prima cosa la velocità di ciascun pianeta varia in base alla loro posizione: poiché l'ascissa della posizione di Giove è maggiore di quella di Marte, la velocità di Giove aumenta diventando (1, 0, 0); poiché l'ascissa della posizione di Marte è minore di quella di Giove, la velocità di Marte diminuisce diventando (-1, 0, 0).
+Cambia poi la posizione di ciascun pianeta, sommando coordinata per coordinata posizione e velocità. Quella di Giove diventa quindi (4, 0, 0), quella di Marte (4, 0, 0) [non sono richiesti controlli particolari sulla posizione: due pianeti possono cioè trovarsi nella stessa].
+Questo è quanto accade in una simulazione di durata pari ad un secondo. Nel secondo successivo, le velocità dei due pianeti resterebbero invariate ma cambiarebbe la loro posizione.
+
+In generale, consideriamo due pianeti A e B. La posizione di A è data dal punto (x, y, z), quella di B dal punto (x', y', z'); le loro velocità sono inizialmente nulle.
+Durante un secondo, hanno luogo i seguenti avvenimenti.
+
+1 - Cambia la velocità di ciascun pianeta in base alla seguente formula:
+
+se x > x', l'ascissa della velocità di A aumenta di 1;
+se x < x', l'ascissa della velocità di A diminuisce di 1.
+
+Lo stesso dicasi per le altre coordinate delle posizioni: le ordinate influenzano l'ordinata della velocità, le quote influenzano la quota della velocità.
+2 - Cambia la posizione di ciascun pianeta in base alla sua velocità: se, dopo la variazione di velocità descritta prima, quella di A è diventata (1, 0, 0) e quella di B (-1, 0, 0), le posizioni risultanti saranno rispettivamente (x + 1, y, z) e (x' - 1, y', z').
+
+Un sistema astronomico è una collezione di pianeti e stelle fisse. Questo deve essere in grado di eseguire una simulazione (come quella di cui sopra) per un intervallo di tempo arbitrario (esprimibile come intero), e di calcolare l'energia totale del sistema nella configurazione in cui viene a trovarsi trascorso questo tempo.
+
+Bonus: prima di stampare un sistema astronomico, ordinare alfabeticamente in base al nome l'insieme dei suoi corpi celesti.
